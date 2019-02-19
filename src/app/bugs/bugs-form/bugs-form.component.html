@@ -1,0 +1,11 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="formBug" #myForm="ngForm">
+
+  <div layout-gt-sm="row">
+    <label class="copy1">New Problem: </label>
+    <input formControlName="problem" placeholder="Problem" style="color:black;"  required/>
+    <button class="btn btn-primary btn-sm">Create Me</button>
+  </div>
+
+</form>
+
+<button (click)="clicked()">click 2</button>
