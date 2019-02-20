@@ -82,9 +82,11 @@
             </td>
             <td style="width:5%" [style.background]="bug.editColor">
                 <button class="btn btn-primary btn-xs" [disabled]="bug.isDisabled == null ? false : bug.isDisabled"
-                    (click)="deleteBug(bug.id)" *ngIf="!isEditable">Delete</button>
+                (click)="openDeleteDialog()"     *ngIf="!isEditable">Delete</button>
             </td>
 
         </tr>
     </table>
 </ng-template>
+
+<!-- (click)="deleteBug(bug.id)" -->

@@ -4,6 +4,8 @@ import { Bug } from '../models/bug.model';
 import { UUID } from 'angular2-uuid';
 import { Store } from '@ngrx/store';
 import { selectAllBugs } from './store/reducers';
+import { BugsDeleteDialogueComponent } from '../bugs/bugs-delete-dialogue/bugs-delete-dialogue.component';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-bugs-machine',
@@ -16,19 +18,32 @@ export class BugsMachineComponent implements OnInit {
   editing = false;
   idToEdit: string | null;
 
-  constructor(private store: Store<any>) {}
+  constructor(private store: Store<any>
+    ) { }
 
   ngOnInit() {
 
+    const preBugs = [
+      '1st bug',
+      '2nd bug',
+      '3rd bug',
+      '4th bug',
+      '5th bug'
+    ]
+
     this.bugs$ = this.store.select(selectAllBugs);
+
+    for (let i = 0; i < preBugs.length; i++) {
+      this.addBug(preBugs[i]);
+    }
   }
 
 
   addBug(value) {
     const bug: Bug = {
       problem: value,
-      response:null,
-      dateCreated: null,
+      response: null,
+      dateCreated: new Date(),
       dateResolved: null,
       id: this.generateUUID()
     };
@@ -74,4 +89,16 @@ export class BugsMachineComponent implements OnInit {
   generateUUID() {
     return UUID.UUID();
   }
+
+  // openDeleteDialog() {
+
+  //   const dialogRef = this.dialog.open(BugsDeleteDialogueComponent, {
+  //     width: '250px',
+  //     height: 'auto',
+  //     // data: this.banner
+  //   });
+
+
+
+  // }
 }

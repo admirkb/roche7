@@ -19,6 +19,10 @@ import { BugsMachineComponent } from './bugs-machine/bugs-machine.component';
 
 import { BugModule } from './bug.module';
 import { BugsModule } from './bugs/bugs.module';
+import { BugsDeleteDialogueComponent } from './bugs/bugs-delete-dialogue/bugs-delete-dialogue.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialDesignModule } from './material-design/material-design.module';
+
 
 @NgModule({
   declarations: [
@@ -28,6 +32,7 @@ import { BugsModule } from './bugs/bugs.module';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     VirtualScrollingModule,
     BrowserModule,
@@ -39,9 +44,11 @@ import { BugsModule } from './bugs/bugs.module';
     EffectsModule.forRoot([]),
     TodoModule,
     // BugModule,
-    BugsModule
+    BugsModule,
+    MaterialDesignModule
   ],
   providers: [],
+  entryComponents: [BugsDeleteDialogueComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
