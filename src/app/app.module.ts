@@ -20,6 +20,7 @@ import { BugsMachineComponent } from './bugs-machine/bugs-machine.component';
 import { BugModule } from './bug.module';
 import { BugsModule } from './bugs/bugs.module';
 import { BugsDeleteDialogueComponent } from './bugs/bugs-delete-dialogue/bugs-delete-dialogue.component';
+import { BugsAddDialogueComponent } from './bugs/bugs-add-dialogue/bugs-add-dialogue.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialDesignModule } from './material-design/material-design.module';
 
@@ -48,7 +49,7 @@ import { MaterialDesignModule } from './material-design/material-design.module';
     MaterialDesignModule
   ],
   providers: [],
-  entryComponents: [BugsDeleteDialogueComponent],
+  entryComponents: [BugsDeleteDialogueComponent, BugsAddDialogueComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

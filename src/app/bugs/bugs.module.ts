@@ -9,6 +9,7 @@ import { StoreModule } from '@ngrx/store';
 import { bugReducer } from './store/reducers/bug.reducer';
 import { BugsDeleteDialogueComponent } from './bugs-delete-dialogue/bugs-delete-dialogue.component';
 import { MaterialDesignModule } from '../material-design/material-design.module';
+import { BugsAddDialogueComponent } from './bugs-add-dialogue/bugs-add-dialogue.component';
 
 @NgModule({
   imports: [
@@ -18,7 +19,7 @@ import { MaterialDesignModule } from '../material-design/material-design.module'
     StoreModule.forFeature('bug', bugReducer),
     MaterialDesignModule
   ],
-  declarations: [BugsListComponent, BugsItemComponent, BugsFormComponent, BugsViewComponent, BugsDeleteDialogueComponent],
+  declarations: [BugsListComponent, BugsItemComponent, BugsFormComponent, BugsViewComponent, BugsDeleteDialogueComponent, BugsAddDialogueComponent],
   exports: [BugsListComponent, BugsItemComponent, BugsFormComponent, BugsViewComponent]
 })
 export class BugsModule { }

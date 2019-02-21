@@ -1,6 +1,6 @@
-<input placeholder="your bug" [(ngModel)]="bug">
+<input placeholder="your bug" [(ngModel)]="bugValue">
 
-<button (click)="addBug(bug)" [disabled]="!bug" *ngIf="!editing">
+<button (click)="openAddDialog()" [disabled]="!bugValue" *ngIf="!editing">
   Add bug
 </button>
 
@@ -22,6 +22,8 @@
     <button (click)="deleteBug(bug.id)">X</button>
   </li>
 </ul> -->
+
+<app-bugs-form></app-bugs-form>
 
 <div *ngFor="let bug of bugs$| async; let i = index">
   <app-bugs-item [bug]="bug" [index]="i" ></app-bugs-item>

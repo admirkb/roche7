@@ -4,8 +4,9 @@ import { Bug } from '../models/bug.model';
 import { UUID } from 'angular2-uuid';
 import { Store } from '@ngrx/store';
 import { selectAllBugs } from './store/reducers';
-import { BugsDeleteDialogueComponent } from '../bugs/bugs-delete-dialogue/bugs-delete-dialogue.component';
+import { BugsAddDialogueComponent } from '../bugs/bugs-add-dialogue/bugs-add-dialogue.component';
 import { MatDialog } from '@angular/material';
+
 
 @Component({
   selector: 'app-bugs-machine',
@@ -14,12 +15,12 @@ import { MatDialog } from '@angular/material';
 })
 export class BugsMachineComponent implements OnInit {
   bugs$: any;
-  bug: string;
+  bugValue: string;
   editing = false;
   idToEdit: string | null;
 
-  constructor(private store: Store<any>
-    ) { }
+  constructor(private store: Store<any>,
+    public dialog: MatDialog) { }
 
   ngOnInit() {
 
@@ -49,42 +50,62 @@ export class BugsMachineComponent implements OnInit {
     };
     this.store.dispatch(new BugActions.AddBug({ bug }));
 
-    this.bug = '';
+    this.bugValue = null;
   }
 
-  deleteBug(id) {
-    this.store.dispatch(new BugActions.DeleteBug({ id }));
+  openAddDialog() {
+
+    const dialogRef = this.dialog.open(BugsAddDialogueComponent, {
+      width: '250px',
+      height: 'auto',
+      data: this.bugValue
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed result', result);
+
+      if (result !== undefined) {
+        this.addBug(this.bugValue);
+      }
+
+
+    });
+
   }
 
-  editBug(bug) {
-    this.editing = true;
-    this.bug = bug.value;
-    this.idToEdit = bug.id;
-  }
+  // deleteBug(id) {
+  //   this.store.dispatch(new BugActions.DeleteBug({ id }));
+  // }
 
-  cancelEdit() {
-    this.editing = false;
-    this.bug = '';
-    this.idToEdit = null;
-  }
+  // editBug(bug) {
+  //   this.editing = true;
+  //   this.bug = bug.value;
+  //   this.idToEdit = bug.id;
+  // }
 
-  updateBug(updatedBug) {
-    this.store.dispatch(
-      new BugActions.UpdateBug({
-        id: this.idToEdit,
-        newValue: updatedBug
-      })
-    );
-    this.bug = '';
-    this.idToEdit = null;
-    this.editing = false;
-  }
+  // cancelEdit() {
+  //   this.editing = false;
+  //   this.bug = '';
+  //   this.idToEdit = null;
+  // }
 
-  toggleDone(bug) {
-    this.store.dispatch(
-      new BugActions.ToggleDone({ id: bug.id, done: !bug.done })
-    );
-  }
+  // updateBug(updatedBug) {
+  //   this.store.dispatch(
+  //     new BugActions.UpdateBug({
+  //       id: this.idToEdit,
+  //       newValue: updatedBug
+  //     })
+  //   );
+  //   this.bug = '';
+  //   this.idToEdit = null;
+  //   this.editing = false;
+  // }
+
+  // toggleDone(bug) {
+  //   this.store.dispatch(
+  //     new BugActions.ToggleDone({ id: bug.id, done: !bug.done })
+  //   );
+  // }
 
   generateUUID() {
     return UUID.UUID();

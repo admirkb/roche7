@@ -57,7 +57,7 @@ export class BugsItemComponent implements OnInit {
     const dialogRef = this.dialog.open(BugsDeleteDialogueComponent, {
       width: '250px',
       height: 'auto',
-      // data: this.banner
+      data: {heading: 'my heading'}
     });
 
     dialogRef.afterClosed().subscribe(result => {
