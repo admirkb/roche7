@@ -12,7 +12,7 @@ import { Roche7Service } from '../../roche7/roche7.service';
 export class BugsItemComponent implements OnInit {
   @Input() bug;
   @Input() index;
-  isEditable: boolean = false;
+  isEditable = false;
 
   constructor(private store: Store<any>,
     public roche7Service: Roche7Service,
@@ -34,7 +34,7 @@ export class BugsItemComponent implements OnInit {
   }
 
   updateBug(bug) {
-    this.roche7Service.updateBug(bug)
+    this.roche7Service.updateBug(bug);
     this.isEditable = false;
   }
 

@@ -25,7 +25,7 @@ const routes: Routes = [
   { path: 'roche7', component: Roche7Component },
 
 
-]
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

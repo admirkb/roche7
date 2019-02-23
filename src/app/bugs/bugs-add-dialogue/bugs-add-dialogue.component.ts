@@ -20,12 +20,12 @@ export class BugsAddDialogueComponent implements OnInit {
   }
 
   onNoClick(): void {
-    console.log('onNoClick')
+    console.log('onNoClick');
     this.dialogRef.close();
   }
 
   onClick(data): void {
-    console.log('data', data)
+    console.log('data', data);
     this.dialogRef.close();
   }
 }

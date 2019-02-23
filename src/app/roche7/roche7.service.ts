@@ -21,7 +21,7 @@ export class Roche7Service {
       '3rd bug',
       '4th bug',
       '5th bug'
-    ]
+    ];
 
     // this.bugs$ = this.store.select(selectAllBugs);
 

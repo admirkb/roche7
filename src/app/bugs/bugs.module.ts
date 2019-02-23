@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule }         from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BugsListComponent } from './bugs-list/bugs-list.component';
 import { BugsItemComponent } from './bugs-item/bugs-item.component';
 import { BugsFormComponent } from './bugs-form/bugs-form.component';
@@ -19,7 +19,8 @@ import { BugsAddDialogueComponent } from './bugs-add-dialogue/bugs-add-dialogue.
     StoreModule.forFeature('bug', bugReducer),
     MaterialDesignModule
   ],
-  declarations: [BugsListComponent, BugsItemComponent, BugsFormComponent, BugsViewComponent, BugsDeleteDialogueComponent, BugsAddDialogueComponent],
+  declarations: [BugsListComponent, BugsItemComponent, BugsFormComponent,
+    BugsViewComponent, BugsDeleteDialogueComponent, BugsAddDialogueComponent],
   exports: [BugsListComponent, BugsItemComponent, BugsFormComponent, BugsViewComponent]
 })
 export class BugsModule { }

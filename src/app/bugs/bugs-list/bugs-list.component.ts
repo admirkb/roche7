@@ -20,6 +20,6 @@ export class BugsListComponent implements OnInit {
 
 
   private itemEditEvent(e) {
-    console.log("itemEditEvent", e);
+    console.log('itemEditEvent', e);
   }
 }

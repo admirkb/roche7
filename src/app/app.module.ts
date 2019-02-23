@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { VirtualScrollingModule } from './virtual-scrolling/virtual-scrolling.module'
+import { VirtualScrollingModule } from './virtual-scrolling/virtual-scrolling.module';
 
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';

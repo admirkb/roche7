@@ -1,6 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import {CollectionViewer, DataSource} from '@angular/cdk/collections';
-import {BehaviorSubject, Observable, Subscription} from 'rxjs';
+import { CollectionViewer, DataSource } from '@angular/cdk/collections';
+import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 @Component({
   selector: 'app-scroller-data-source',
   templateUrl: './scroller-data-source.component.html',
@@ -19,7 +19,7 @@ export class ScrollerDataSourceComponent implements OnInit {
 export class MyDataSource extends DataSource<string | undefined> {
   private length = 100000;
   private pageSize = 100;
-  private cachedData = Array.from<string>({length: this.length});
+  private cachedData = Array.from<string>({ length: this.length });
   private fetchedPages = new Set<number>();
   private dataStream = new BehaviorSubject<(string | undefined)[]>(this.cachedData);
   private subscription = new Subscription();
@@ -52,8 +52,8 @@ export class MyDataSource extends DataSource<string | undefined> {
     // Use `setTimeout` to simulate fetching data from server.
     setTimeout(() => {
       this.cachedData.splice(page * this.pageSize, this.pageSize,
-          ...Array.from({length: this.pageSize})
-              .map((_, i) => `Item #${page * this.pageSize + i}`));
+        ...Array.from({ length: this.pageSize })
+          .map((_, i) => `Item #${page * this.pageSize + i}`));
       this.dataStream.next(this.cachedData);
     }, Math.random() * 1000 + 200);
   }

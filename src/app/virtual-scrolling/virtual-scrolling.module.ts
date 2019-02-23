@@ -11,7 +11,8 @@ import { ScrollerParentTagComponent } from './scroller-parent-tag/scroller-paren
 import { ScrollerStrategiesComponent } from './scroller-strategies/scroller-strategies.component';
 
 @NgModule({
-  declarations: [ScrollerComponent, ScrollerContextComponent, ScrollerCacheComponent, ScrollerDataSourceComponent, ScrollerFixedBufferComponent, ScrollerHorizontalComponent, ScrollerParentTagComponent, ScrollerStrategiesComponent],
+  declarations: [ScrollerComponent, ScrollerContextComponent, ScrollerCacheComponent, ScrollerDataSourceComponent,
+    ScrollerFixedBufferComponent, ScrollerHorizontalComponent, ScrollerParentTagComponent, ScrollerStrategiesComponent],
   imports: [
     CommonModule,
     MaterialDesignModule
