@@ -56,7 +56,6 @@ export class BugsFormComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed result', result);
 
       if (result !== undefined) {
         this.roche7Service.addBug(this.registerForm.value.problem);

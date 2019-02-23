@@ -47,7 +47,6 @@ export class BugsItemComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed result', result);
 
       if (result !== undefined) {
         this.deleteBug(this.bug.id);
