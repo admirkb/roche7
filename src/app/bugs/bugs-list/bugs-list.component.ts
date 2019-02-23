@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { selectAllBugs } from '../store/reducers';
+// import { selectAllBugs } from '../store/reducers/';
 
 @Component({
   selector: 'app-bugs-list',
@@ -14,7 +14,7 @@ export class BugsListComponent implements OnInit {
 
   ngOnInit() {
 
-    this.bugs$ = this.store.select(selectAllBugs);
+    // this.bugs$ = this.store.select(selectAllBugs);
 
   }
 

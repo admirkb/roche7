@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import * as BugActions from '../bugs-machine/store/actions/bug.actions';
+import * as BugActions from '../bugs/store/actions/bug.actions';
 import { Bug } from '../models/bug.model';
 import { UUID } from 'angular2-uuid';
 import { Store } from '@ngrx/store';
@@ -7,19 +7,21 @@ import { selectAllBugs } from './store/reducers';
 import { BugsAddDialogueComponent } from '../bugs/bugs-add-dialogue/bugs-add-dialogue.component';
 import { MatDialog } from '@angular/material';
 
+import {Roche7Service} from './roche7.service';
 
 @Component({
-  selector: 'app-bugs-machine',
-  templateUrl: './bugs-machine.component.html',
-  styleUrls: ['./bugs-machine.component.css']
+  selector: 'app-roche7',
+  templateUrl: './roche7.component.html',
+  styleUrls: ['./roche7.component.scss']
 })
-export class BugsMachineComponent implements OnInit {
+export class Roche7Component implements OnInit {
   bugs$: any;
   bugValue: string;
   editing = false;
   idToEdit: string | null;
 
   constructor(private store: Store<any>,
+    public roche7Service:Roche7Service,
     public dialog: MatDialog) { }
 
   ngOnInit() {
@@ -35,22 +37,8 @@ export class BugsMachineComponent implements OnInit {
     this.bugs$ = this.store.select(selectAllBugs);
 
     for (let i = 0; i < preBugs.length; i++) {
-      this.addBug(preBugs[i]);
+      this.roche7Service.addBug(preBugs[i]);
     }
-  }
-
-
-  addBug(value) {
-    const bug: Bug = {
-      problem: value,
-      response: null,
-      dateCreated: new Date(),
-      dateResolved: null,
-      id: this.generateUUID()
-    };
-    this.store.dispatch(new BugActions.AddBug({ bug }));
-
-    this.bugValue = null;
   }
 
   openAddDialog() {
@@ -65,7 +53,8 @@ export class BugsMachineComponent implements OnInit {
       console.log('The dialog was closed result', result);
 
       if (result !== undefined) {
-        this.addBug(this.bugValue);
+        this.roche7Service.addBug(this.bugValue);
+        this.bugValue = null;
       }
 
 

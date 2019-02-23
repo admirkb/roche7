@@ -21,7 +21,7 @@ export class DeleteBug implements Action {
 export class UpdateBug implements Action {
   readonly type = UPDATE_BUG;
 
-  constructor(public payload: { id: string; newValue: string }) {}
+  constructor(public payload: {  bug: Bug }) {}
 }
 
 export class ToggleDone implements Action {

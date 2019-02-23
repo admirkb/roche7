@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { StoreModule } from '@ngrx/store';
-import { bugReducer } from './bugs-machine/store/reducers/bug.reducer';
+// import { bugReducer } from './store/reducers';
 
 @NgModule({
   imports: [
     CommonModule,
-    StoreModule.forFeature('bug', bugReducer)
+    // StoreModule.forFeature('bug', bugReducer)
   ],
   declarations: []
 })

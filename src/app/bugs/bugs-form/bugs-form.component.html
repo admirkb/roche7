@@ -1,4 +1,4 @@
-<form (ngSubmit)="onSubmit()" [formGroup]="formBug" #myForm="ngForm">
+<!-- <form (ngSubmit)="onSubmit()" [formGroup]="formBug" #myForm="ngForm">
 
   <div layout-gt-sm="row">
     <label class="copy1">New Problem: </label>
@@ -6,4 +6,22 @@
     <button class="btn btn-primary btn-sm">Create Me</button>
   </div>
 
+</form> -->
+
+
+
+<h3>Quick Angular 7 Roche CRUD Sample</h3>
+
+
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <div >
+    <div >
+      <input type="text" placeholder="your bug" formControlName="problem" class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.problem.errors }" />
+        <button class="btn btn-primary">Add bug</button>
+      <div *ngIf="submitted && f.problem.errors" class="invalid-feedback">
+        <div *ngIf="f.problem.errors.required">bug is required</div>
+      </div>
+    </div>
+  </div>
 </form>

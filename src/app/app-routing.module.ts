@@ -9,6 +9,8 @@ import { ScrollerHorizontalComponent } from './virtual-scrolling/scroller-horizo
 import { ScrollerParentTagComponent } from './virtual-scrolling/scroller-parent-tag/scroller-parent-tag.component';
 import { ScrollerStrategiesComponent } from './virtual-scrolling/scroller-strategies/scroller-strategies.component';
 
+import { Roche7Component } from './roche7/roche7.component';
+
 
 const routes: Routes = [
   { path: '', component: ScrollerComponent },
@@ -20,6 +22,7 @@ const routes: Routes = [
   { path: 'scrollerHorizontal', component: ScrollerHorizontalComponent },
   { path: 'scrollerParentTag', component: ScrollerParentTagComponent },
   { path: 'scrollerStrategies', component: ScrollerStrategiesComponent },
+  { path: 'roche7', component: Roche7Component },
 
 
 ]

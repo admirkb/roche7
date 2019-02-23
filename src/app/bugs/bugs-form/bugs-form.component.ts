@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Bug } from '../../models/bug.model';
-import { UUID } from 'angular2-uuid';
 import { Store } from '@ngrx/store';
-import * as BugActions from '../store/actions/bug.actions';
+import { MatDialog } from '@angular/material';
+import { Roche7Service } from '../../roche7/roche7.service';
 
 @Component({
   selector: 'app-bugs-form',
@@ -11,44 +11,42 @@ import * as BugActions from '../store/actions/bug.actions';
   styleUrls: ['./bugs-form.component.css']
 })
 export class BugsFormComponent implements OnInit {
-  public formBug = this.fb.group({
-    problem: ["", Validators.required],
-    editColor: "transparent",
-  });
+
   bug: Bug;
+  bugValue: string;
+
+
+
+  registerForm: FormGroup;
+  submitted = false;
 
   constructor(public fb: FormBuilder,
-    private store: Store<any>) { }
+    public roche7Service: Roche7Service,
+    private store: Store<any>,
+    public dialog: MatDialog) { }
 
   ngOnInit() {
+
+    this.registerForm = this.fb.group({
+      problem: ['', Validators.required],
+
+    }, {
+      });
   }
 
-  addBug(value) {
-
-    const bug: Bug = {
-      problem: value.problem,
-      response: null,
-      dateCreated: new Date(),
-      dateResolved: null,
-      id: this.generateUUID()
-    };
-    this.store.dispatch(new BugActions.AddBug({ bug }));
-
-  }
+  get f() { return this.registerForm.controls; }
 
   onSubmit() {
-    alert('hi')
-    var value = this.formBug.value;
-    this.addBug(value);
-    this.formBug.reset();
+
+    this.submitted = true;
+    if (this.registerForm.invalid) {
+      return;
+    }
+
+    this.roche7Service.addBug(this.registerForm.value.problem);
+    this.registerForm.reset();
+    this.submitted = false;
   }
 
-  generateUUID() {
-    return UUID.UUID();
-  }
 
-  clicked(){
-
-    alert('hi')
-  }
 }

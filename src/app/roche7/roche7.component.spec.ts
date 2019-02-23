@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BugsMachineComponent } from './bugs-machine.component';
+import { Roche7Component } from './roche7.component';
 
-describe('BugsMachineComponent', () => {
-  let component: BugsMachineComponent;
-  let fixture: ComponentFixture<BugsMachineComponent>;
+describe('Roche7Component', () => {
+  let component: Roche7Component;
+  let fixture: ComponentFixture<Roche7Component>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BugsMachineComponent ]
+      declarations: [ Roche7Component ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BugsMachineComponent);
+    fixture = TestBed.createComponent(Roche7Component);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

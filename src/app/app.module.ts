@@ -15,7 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { reducers } from './store/reducers';
 import { TodoModule } from './todo.module';
 import { todoReducer } from './store/reducers/todo.reducer';
-import { BugsMachineComponent } from './bugs-machine/bugs-machine.component';
+// import { BugsMachineComponent } from './bugs-machine/bugs-machine.component';
 
 import { BugModule } from './bug.module';
 import { BugsModule } from './bugs/bugs.module';
@@ -24,12 +24,14 @@ import { BugsAddDialogueComponent } from './bugs/bugs-add-dialogue/bugs-add-dial
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialDesignModule } from './material-design/material-design.module';
 
+import { Roche7Module } from './roche7/roche7.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoMachineComponent,
-    BugsMachineComponent
+    // BugsMachineComponent
   ],
   imports: [
     BrowserModule,
@@ -45,8 +47,9 @@ import { MaterialDesignModule } from './material-design/material-design.module';
     EffectsModule.forRoot([]),
     TodoModule,
     // BugModule,
-    BugsModule,
-    MaterialDesignModule
+    // BugsModule,
+    MaterialDesignModule,
+    Roche7Module
   ],
   providers: [],
   entryComponents: [BugsDeleteDialogueComponent, BugsAddDialogueComponent],
