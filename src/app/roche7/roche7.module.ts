@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Roche7Component } from './roche7.component';
 import { FormsModule } from '@angular/forms';
 import { BugsModule } from '../bugs/bugs.module';
-
+import { MaterialDesignModule } from '../material-design/material-design.module';
 
 @NgModule({
   declarations: [Roche7Component
@@ -11,7 +11,8 @@ import { BugsModule } from '../bugs/bugs.module';
   imports: [
     CommonModule,
     FormsModule,
-    BugsModule
+    BugsModule,
+    MaterialDesignModule
   ],
 })
 export class Roche7Module { }

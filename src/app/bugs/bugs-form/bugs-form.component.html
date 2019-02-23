@@ -18,7 +18,7 @@
     <div >
       <input type="text" placeholder="your bug" formControlName="problem" class="form-control"
         [ngClass]="{ 'is-invalid': submitted && f.problem.errors }" />
-        <button class="btn btn-primary">Add bug</button>
+        <button mat-raised-button color="primary">Add bug</button>
       <div *ngIf="submitted && f.problem.errors" class="invalid-feedback">
         <div *ngIf="f.problem.errors.required">bug is required</div>
       </div>

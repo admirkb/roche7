@@ -30,10 +30,10 @@
                     date:'dd/MM/yyyy @ HH:mm'}}</div>
             </td>
             <td style="width:5%" [style.background]="transparent">
-                <button class="btn btn-primary btn-xs" (click)="updateBug(bug)">Update</button>
+                <button mat-raised-button color="primary" (click)="updateBug(bug)">Update</button>
             </td>
             <td style="width:5%" [style.background]="transparent">
-                <button class="btn btn-primary btn-xs" (click)="cancelBug(bug, key)">Cancel</button>
+                <button mat-raised-button color="primary" (click)="cancelBug(bug, key)">Cancel</button>
             </td>
 
         </tr>
@@ -77,16 +77,14 @@
                     HH:mm'}}</div>
             </td>
             <td style="width:5%" [style.background]="bug.editColor">
-                <button class="btn btn-primary btn-xs" [disabled]="bug.isDisabled == null ? false : bug.isDisabled"
+                <button mat-raised-button color="primary" [disabled]="bug.isDisabled == null ? false : bug.isDisabled"
                     (click)="editBug(bug)" *ngIf="!isEditable">Edit</button>
             </td>
             <td style="width:5%" [style.background]="bug.editColor">
-                <button class="btn btn-primary btn-xs" [disabled]="bug.isDisabled == null ? false : bug.isDisabled"
+                <button mat-raised-button color="primary" [disabled]="bug.isDisabled == null ? false : bug.isDisabled"
                 (click)="openDeleteDialog()"     *ngIf="!isEditable">Delete</button>
             </td>
 
         </tr>
     </table>
 </ng-template>
-
-<!-- (click)="deleteBug(bug.id)" -->
