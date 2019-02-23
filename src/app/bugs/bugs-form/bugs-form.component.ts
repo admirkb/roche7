@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Bug } from '../../models/bug.model';
 import { Store } from '@ngrx/store';
+import { BugsAddDialogueComponent } from '../../bugs/bugs-add-dialogue/bugs-add-dialogue.component';
 import { MatDialog } from '@angular/material';
 import { Roche7Service } from '../../roche7/roche7.service';
 
@@ -43,10 +44,28 @@ export class BugsFormComponent implements OnInit {
       return;
     }
 
-    this.roche7Service.addBug(this.registerForm.value.problem);
-    this.registerForm.reset();
-    this.submitted = false;
+    this.openAddDialog();
   }
 
+  openAddDialog() {
 
+    const dialogRef = this.dialog.open(BugsAddDialogueComponent, {
+      width: 'auto',
+      height: 'auto',
+      data: { heading: this.registerForm.value.problem }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed result', result);
+
+      if (result !== undefined) {
+        this.roche7Service.addBug(this.registerForm.value.problem);
+
+      }
+      this.registerForm.reset();
+      this.submitted = false;
+
+    });
+
+  }
 }

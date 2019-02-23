@@ -1,24 +1,10 @@
-<p>
-  bugs-add-dialogue works!
-</p>
-<h1 mat-dialog-title>Add: {{data}}</h1>
+<h1 mat-dialog-title>Add: {{data.heading}}</h1>
 <div mat-dialog-content>
-
-
-  <table cellspacing="0" cellpadding="0" style="width:100%; height:70px; max-height: 70px; background:red;">
-    <tr>
-      <td style="width:100%;  height:100%;; background: yellow;">
-
-
-      </td>
-    </tr>
-  </table>
-
 
   <h3>Are you sure?</h3>
 
 </div>
 <div mat-dialog-actions>
-  <button mat-button color="primary" [mat-dialog-close]="data" tabindex="2">Yes</button>
-  <button mat-button (click)="onNoClick()" tabindex="-1">No</button>
+  <button mat-raised-button color="primary" [mat-dialog-close]="data" tabindex="2">Yes</button>
+  <button mat-raised-button color="accent" (click)="onNoClick()" tabindex="-1">No</button>
 </div>
