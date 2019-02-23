@@ -11,8 +11,6 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { FormsModule } from '@angular/forms';
 
-import { reducers } from './store/reducers';
-
 import { BugsDeleteDialogueComponent } from './bugs/bugs-delete-dialogue/bugs-delete-dialogue.component';
 import { BugsAddDialogueComponent } from './bugs/bugs-add-dialogue/bugs-add-dialogue.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -32,7 +30,7 @@ import { Roche7Module } from './roche7/roche7.module';
     VirtualScrollingModule,
     BrowserModule,
     FormsModule,
-    StoreModule.forRoot(reducers),
+    StoreModule.forRoot({}),
     StoreDevtoolsModule.instrument({
       maxAge: 80 //  Retains last 80 states
     }),
